@@ -26,6 +26,7 @@ This architecture is better suited for large and complex projects and adds more 
 * **NgRx:** Used for state management
 * **Nebular UI:** Angular UI library and Theme
 * **Jasmine marbles:** Unit testing library for async RxJS functions
+* **@angular/pwa:** Caching for assets and API calls
 
 ## Project Structure
 ```

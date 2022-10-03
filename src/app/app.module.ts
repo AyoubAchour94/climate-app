@@ -31,6 +31,7 @@ import { UiAutocompleteComponent } from './lib/components/ui-autocomplete/ui-aut
 import { BrightenDirective } from './lib/directives/brighten.directive';
 import { MainInterceptor } from './lib/interceptors/main.interceptor';
 import { UiSlideComponent } from './lib/components/ui-slide/ui-slide.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,13 @@ import { UiSlideComponent } from './lib/components/ui-slide/ui-slide.component';
     EffectsModule.forRoot([WeatherEffects]),
     StorageModule.forRoot({ IDBNoWrap: true }),
     CarouselModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     {
