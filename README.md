@@ -56,7 +56,6 @@ This architecture is better suited for large and complex projects and adds more 
 │   ├── index.html
 │   ├── main.ts
 │   ├── styles.scss               (Contains global css)
-│   └── themes.scss               (Theme variables)
 ├── tsconfig.json
 ├── .eslintrc.json                (Project lint rules)
 ├── server.js                     (Minimal Express js used to serve dist in production)
@@ -74,7 +73,6 @@ npm install
 ```sh
 npm run build
 ```
-> PS: Production build might take a while you can use "`npm run dev`" to run project locally instead.
 ## Usage
 
 ```sh
