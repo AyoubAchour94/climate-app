@@ -1,0 +1,9 @@
+<div *ngIf="cities$ | async as cities">
+    <owl-carousel-o [options]="config" (translated)="onSlideChange($event)">
+        <ng-container *ngFor="let city of cities; index as i;trackBy: trackByFn">
+            <ng-template key="index" carouselSlide [id]="i.toString()">
+                <app-ui-slide [city]="city"></app-ui-slide>
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+</div>

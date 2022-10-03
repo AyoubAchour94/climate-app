@@ -1,0 +1,26 @@
+<nb-layout>
+
+  <nb-layout-header fixed>
+    <div class="header-container">
+      <div class="app-logo">
+        <a [routerLink]="['/']">
+          <img src="/assets/logo2.svg"/>
+        </a>
+      </div>
+      <div>
+        <app-ui-autocomplete></app-ui-autocomplete>
+      </div>
+    </div>
+  </nb-layout-header>
+
+  <nb-layout-column>
+    
+    <router-outlet></router-outlet>
+    
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <div class="copyright">Created by <b>Ayoub Ben Achour</b>. © 2022</div>
+  </nb-layout-footer>
+
+</nb-layout>

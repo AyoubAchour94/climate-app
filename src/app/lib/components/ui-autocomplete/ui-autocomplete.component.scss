@@ -1,0 +1,40 @@
+nb-form-field {
+    input {
+        background-color: #94e2e2;
+        &:focus {
+            border-color: #31ffff !important;
+        }
+    }
+    .autocomplete-container {
+        position: absolute;
+        top: 4rem;
+        border-radius: 0.25rem;
+        width: 16.2rem;
+        overflow: hidden;
+        z-index: 99;
+        nb-list {
+            nb-list-item {
+                background-color: white;
+                cursor: pointer;
+                &:hover {
+                    background-color: #94e2e2;
+                }
+            }
+        }
+        .autocomplete-overlay {
+            position: fixed;
+            top:0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            z-index:-1
+        }
+    }
+    
+}
+
+:host ::ng-deep nb-form-field {
+    .nb-form-field-addon-basic-highlight {
+        color: #31ffff;
+    }
+}

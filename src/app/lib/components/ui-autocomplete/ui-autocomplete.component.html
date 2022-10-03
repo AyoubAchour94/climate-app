@@ -1,0 +1,19 @@
+<nb-form-field>
+    <nb-icon nbPrefix icon="search-outline" pack="eva"></nb-icon>
+    <input #autoInput
+      nbInput
+      type="text"
+      [(ngModel)]="query"
+      (input)="onChange($event)"
+      (focus)="isDirty = true"
+      placeholder="Enter a city name"
+    />
+    <div class="autocomplete-container" *ngIf="isAutocomplete()">
+      <nb-list>
+        <nb-list-item *ngFor="let option of cities$ | async" (click)="onSelectionChange(option)">
+          {{ option.name + ' ,' + option.state + ' - ' + option.country }}
+        </nb-list-item>
+      </nb-list>
+      <div class="autocomplete-overlay" (click)="isDirty = false"></div>
+    </div>
+</nb-form-field>

@@ -1,0 +1,68 @@
+<div class="slide-content">
+    <div class="slide-body" [appBrighten]="city?.currentWeather?.temp">
+        <h1 class="slide-title">{{city?.name}}</h1>
+        <div class="weather-content">
+            <div class="weather-content-header">
+                <div class="temp-container">
+                    <img class="weather-icon" src="http://openweathermap.org/img/wn/{{city?.currentWeather?.icon}}@2x.png" alt="">
+                    <div>
+                        <span class="weather-temp">{{city?.currentWeather?.temp | number: '1.0-0'}}</span>
+                        <span class="weather-temp-unit">&#8451;</span>
+                    </div>
+                </div>
+                <div class="weather-description-container">
+                    <div>Feels like {{city?.currentWeather?.feelsLike | number: '1.0-0'}}</div>
+                    <div>
+                        <b>{{city?.currentWeather?.description}}</b>
+                    </div>
+                </div>
+                <div class="additional-weather-data">
+                    <div class="weather-data-block">
+                        <div><b>MIN</b></div>
+                        <div class="data-value">{{city?.currentWeather?.minTemp | number: '1.0-0'}}</div>
+                    </div>
+                    <div class="weather-data-block">
+                        <div><b>MAX</b></div>
+                        <div class="data-value">{{city?.currentWeather?.maxTemp | number: '1.0-0'}}</div>
+                    </div>
+                    <div class="weather-data-block">
+                        <div><b>HUM</b></div>
+                        <div class="data-value">{{city?.currentWeather?.humidity | number: '1.0-2'}}%</div>
+                    </div>
+                    <div class="weather-data-block">
+                        <div><b>WIND</b></div>
+                        <div class="data-value">{{city?.currentWeather?.wind | number: '1.0-2'}} m/s</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!city?.hourlyForecast" class="sync-container">
+            <button class="sync-button" nbButton status="success" (click)="onClick(city)"><nb-icon [ngClass]="{'loading': city?.isLoading }" icon="sync"></nb-icon></button>
+            <div class="sync-text">Check Hourly Forecast</div>
+        </div>
+        <nb-card *ngIf="city?.hourlyForecast" size="medium">
+            <nb-card-header>
+                Hourly Forecast
+            </nb-card-header>
+            <nb-list>
+                <nb-list-item *ngFor="let forecast of city?.hourlyForecast">
+                    <div class="hourly-container">
+                        <div>{{forecast.date | date:'h a'}}</div>
+                        <div class="hourly-icon">
+                            <img class="weather-icon" src="http://openweathermap.org/img/wn/{{forecast.icon}}@2x.png" alt="">
+                        </div>
+                        <div>
+                            <b>{{forecast.description}}</b>
+                        </div>
+                        <div>
+                            <div>
+                                <span>{{forecast.temp | number: '1.0-0'}}</span>
+                                <span>&#8451;</span>
+                            </div>
+                        </div>
+                    </div>
+                </nb-list-item>
+            </nb-list>
+        </nb-card>
+    </div>
+</div>

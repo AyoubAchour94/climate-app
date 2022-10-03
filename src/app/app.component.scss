@@ -1,0 +1,48 @@
+$background-color: #00b4b4;
+
+nb-layout-header {
+    background-color: $background-color;
+    .header-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .app-logo {
+            padding-left: 1vw;
+            img {
+                width: 50px;
+                filter: invert(1)
+            }
+        }
+    }
+}
+
+nb-layout-column {
+    position: relative;
+    padding: 1vh 2vw 1vh 2vw !important
+}
+
+nb-layout-footer {
+    background-color: #07bcbc;
+    nav.fixed {
+        padding: 0.6rem !important;
+        color: white !important;
+    }
+}
+
+//Forcing styling on child components
+:host ::ng-deep nb-layout {
+    nb-layout-header {
+        nav.fixed {
+            color: white !important;
+        }
+    }
+    nb-layout-footer {
+        nav.fixed {
+            background-color: $background-color !important;
+            padding: 0.6rem !important;
+            color: white !important;
+        }
+    }
+    
+}
